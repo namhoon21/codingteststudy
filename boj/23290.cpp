@@ -16,11 +16,11 @@ vector<vector<int>> smell2;
 vector<vector<int>> smell3;
 vector<node> temp;
 int dir[9][2] = { 0,0,0,-1,-1,-1,-1,0,-1,1,0,1,1,1,1,0,1,-1 };
-int sdir[4][2] = { -1,0,0,-1,1,0,0,1 };
+int sdir[4][2] = { -1,0,0,-1,1,0,0,1 };	//문제조건 신경쓰기
 int sy, sx;
 vector<pair<int, int>> path;
 vector<pair<int, int>> spath;
-//char dirsym[20] = "0→←↑↓↙↙↗↖↘";
+
 
 void showmap()
 {
@@ -116,7 +116,7 @@ void movefish()
 						ismove = 1;
 						break;
 					}
-					map[i][j][k] = (map[i][j][k] + 6) % 8 +1;
+					map[i][j][k] = (map[i][j][k] + 6) % 8 +1;	//0으로 안되게 조심 
 				}
 				if (ismove == 0) {
 					newmap[i][j].push_back(map[i][j][k]);
@@ -153,7 +153,7 @@ void sharkmove(int step, int fish)
 		
 		if (sy < 1 || sy > 4 || sx < 1 || sx > 4)
 		{
-			sy = sy - sdir[i][0];
+			sy = sy - sdir[i][0];	//원위치하기 continue하더라도
 			sx = sx - sdir[i][1];
 			continue;
 		}
